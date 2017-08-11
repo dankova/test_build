@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = function (grunt) {
-  // load all npm grunt tasks
+  // load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
-  // Project configuration.
+  // configuration
   grunt.initConfig({
     jshint: {
       all: [
@@ -18,12 +18,12 @@ module.exports = function (grunt) {
       }
     },
 
-    // Before generating any new files, remove any previously-created files.
+    // before 
     clean: {
       tests: ['tmp']
     },
 
-    // Configuration to be run (and then tested).
+    // configuration 
     start_webdriver: {
       default_options: {
         options: {
@@ -43,23 +43,19 @@ module.exports = function (grunt) {
       }
     },
 
-    // Unit tests.
+    // unit
     nodeunit: {
       tests: ['test/*_test.js']
     }
 
   });
 
-  // Actually load this plugin's task(s).
+  // actually load this plugin's task
   grunt.loadTasks('tasks');
 
-  // Whenever the "test" task is run, first clean the "tmp" dir, then run this
-  // plugin's task(s), then test the result.
   grunt.registerTask('test', ['clean', 'start_webdriver', 'nodeunit']);
 
-  // By default, lint and run all tests.
+  // default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
 
 };
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security 
